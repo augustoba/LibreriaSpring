@@ -1,0 +1,25 @@
+.img-fondo {
+    background-image: url(/img/libreria.jpg)
+}
+
+.form-inicio {
+    margin: 50px;
+    margin-left: 550px;
+    margin-top: 185px;
+    height: 350px;
+    width: 350px;
+    text-align: center;
+}
+
+
+.btn-logout {
+    padding: 0.3em;
+}
+
+.btn-secondary {
+    width: -0.5em;
+}
+
+h5 {
+    color: #fff;
+}
