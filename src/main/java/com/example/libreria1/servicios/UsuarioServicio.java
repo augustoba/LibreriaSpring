@@ -40,6 +40,7 @@ public class UsuarioServicio implements UserDetailsService {
         if (!password.equals(password2)) {
             throw new Exception("Las contraseñas ingresadas deben ser iguales");
         }
+        
         usuario = new Usuario();
         usuario.setUsername(username);
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -62,10 +63,10 @@ public class UsuarioServicio implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         try {
             Usuario usuario = usuarioRepositorio.findByUsername(username);
-            List<GrantedAuthority> pepe = new ArrayList<>();
+            List<GrantedAuthority> autorities = new ArrayList<>();
             agregarUsuarioALaSesion(usuario);
-            pepe.add(new SimpleGrantedAuthority("ROLE_" + usuario.getRol()));
-            return new User(username, usuario.getPassword(), pepe);
+            autorities.add(new SimpleGrantedAuthority("ROLE_" + usuario.getRol()));
+            return new User(username, usuario.getPassword(), autorities);
         } catch (Exception e) {
             throw new UsernameNotFoundException("El usuario no existe");
         }

@@ -28,7 +28,7 @@ public class Seguridad extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/css/*", "/img/*", "/js/*").permitAll()
                 .and().formLogin()
-                .loginPage("/inicio")
+                .loginPage("/")
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .defaultSuccessUrl("/inicio")

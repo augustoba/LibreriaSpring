@@ -11,96 +11,90 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
 
-<body class="img-fondo">
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="/inicio"><i class="bi bi-house"></i></a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-				aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<ul class="navbar-nav">
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false">
-							Autores
-						</a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li><a class="dropdown-item" href="/autor">Formulario Autor</a></li>
-							<li><a class="dropdown-item" href="/autor/list">Lista Autores</a></li>
-						</ul>
-					</li>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<button class="navbar-toggler" type="button" data-bs-target="#navbarNavDropdown"
+					aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation"><a
+						class="navbar-brand" href="/inicio"><i class="bi bi-house"></i></a>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavDropdown">
+					<ul class="navbar-nav">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								Autores
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/autor">Formulario Autor</a></li>
+								<li><a class="dropdown-item" href="/autor/list">Lista de Autores</a></li>
+							</ul>
+						</li>
 
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false">
-							Libros
-						</a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li><a class="dropdown-item" href="/libro">Formulario Libro</a></li>
-							<li><a class="dropdown-item" href="/libro/list">Lista Libros</a></li>
-						</ul>
-					</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								Libros
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/libro">Formulario Libro</a></li>
+								<li><a class="dropdown-item" href="/libro/list">Lista de Libros</a></li>
+							</ul>
+						</li>
 
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false">
-							Editoriales
-						</a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li><a class="dropdown-item" href="/editorial">Formulario Editorial</a></li>
-							<li><a class="dropdown-item" href="/editorial/list">Lista Editoriales</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-
-		<div>
-			<div class="btn-logout">
-				<form th:action="@{/logout}" method="POST">
-					<button type="submit" class="btn btn-secondary">LogOut</button>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								Editoriales
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/editorial">Formulario Editorial</a></li>
+								<li><a class="dropdown-item" href="/editorial/list">Lista de Editoriales</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<a href="/inicio"><button type="submit" class="btn btn-secondary btn-sm">Ir al inicio</button></a>
+				</div>
+				<form th:action="@{/logout}" method="POST" class="p-1">
+					<button type="submit" class="btn btn-danger btn-sm">Cerrar Sesión</button>
 				</form>
 			</div>
-	</nav>
+		</nav>
+	</header>
 
-	<div style="text-align: center">
-		<span th:if="${error != null}" style="color: red;" th:text="${error}"></span>
-		<section class="form-login">
-			<h5>Nombre Editorial</h5>
+	<section class="container-fluid">
+		<section class="row justify-content-center">
+			<section class="col-12 col-sm-6 col-md-3 p-xl-5 m-5">
+				<form class="form-container p-5" th:action="@{/editorial/save}" method="POST"
+					enctype="multipart/form-data">
+					<span th:if="${error != null}" style="color: red;" th:text="${error}"></span>
+					<h5 class="p-2 text-center">Formulario de Editoriales</h5>
+					<div class="mb-3">
+						<input type="text" class="form-control" name="nombre" th:value="${editorial.nombre}"
+							placeholder="Editorial">
+					</div>
+					<input type="file" class="form-control" name="archivo" id="customFile" />
+					<div class="text-center p-3">
+						<button type="submit" class="btn btn-success" value="Guardar">Guardar</button>
+						<input type="text" name="id" th:value="${editorial.id}" hidden />
+						<div class="text-center p-2">
+							<a class="btn btn-primary" href="/editorial/list" role="button">Ir a la lista de
+								Editoriales</a>
+							</button>
+						</div>
+					</div>
+				</form>
+			</section>
+		</section>
+	</section>
 
-			<form th:action="@{/editorial/save}" method="POST" enctype="multipart/form-data">
-				<h2><label for="nombre">Ingrese una Editorial</label></h2>
-
-				<div class="user">
-					<input type="text" name="nombre" class="controls" placeholder="Editorial"
-						th:value="${editorial.nombre}" />
-				</div>
-
-				<div class="mb-3 mt-3">
-					Archivo: <INPUT type="file" name="archivo" size="30">
-				</div>
-
-				<div class="btn-enviar">
-					<button type="submit" class="btn btn-secondary" value="Ingresar">
-						Enviar
-					</button>
-					<input type="text" name="id" th:value="${editorial.id}" hidden />
-				</div>
-			</form>
-
-
-				<div>
-					<button type="button" class="btn btn-primary"> <a href="/editorial/list">Ir a la lista de
-							Editoriales</a></button>
-				</div>
-		
-
-			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-				integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-				crossorigin="anonymous"></script>
-
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+		</script>
 </body>
 
 </html>

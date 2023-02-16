@@ -2,81 +2,18 @@
   background-image: url(/img/libro-bg.jpeg)
 }
 
-input {
-    text-align: center;
+body {
+  background-image: url(/img/editoriales.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
 }
 
-.btn-enviar {
-    padding: 0.5em;
-}
-
-.btn-volver {
-    padding: 0.5em;
-}
-
-.container {
-    text-align: center;
-}
-
-input {
-    padding: 0.5em;
-}
-
-.form-login {
-    width: 400px;
-    height: 450px;
-    background: #4e4d4d;
-    margin: auto;
-    margin-top: 80px;
-    box-shadow: 7px 13px 37px #000;
-    padding: 20px 30px;
-    color: white;
-  }
-  
-  .form-login h5 {
-    margin: 0;
-    text-align: center;
-    height: 40px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid;
-    font-size: 20px;
-  }
-  
-  .controls {
-    width: 100%;
-    border: 1px solid #017bab;
-    margin-bottom: 15px;
-    padding: 11px 10px;
-    background: #ffffff;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  
-  .buttons {
-    width: 100%;
-    height: 40px;
-    background: #017bab;
-    border: none;
-    color: white;
-    margin-bottom: 16px;
-  }
-  
-  .form-login p{
-    height: 40px;
-    text-align: center;
-    border-bottom: 1px solid;
-  }
-  
-  .form-login a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  
-  .form-login a:hover {
-    text-decoration: underline;
-  }
-
-  .btn-logout {
-    padding: 0.3em;
+.form-container {
+  position: absolute;
+  background: rgb(158, 158, 158);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #000;
+  height: 400px;
+  width: 380px;
 }

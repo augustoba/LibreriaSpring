@@ -16,58 +16,60 @@ and open the template in the editor.
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="/inicio"><i class="bi bi-house"></i></a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-				aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<ul class="navbar-nav">
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false">
-							Autores
-						</a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li><a class="dropdown-item" href="/autor">Formulario Autor</a></li>
-							<li><a class="dropdown-item" href="/autor/list">Lista Autores</a></li>
-						</ul>
-					</li>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<a class="navbar-brand" href="/inicio"><i class="bi bi-house"></i></a>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavDropdown">
+					<ul class="navbar-nav">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								Autores
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/autor">Formulario Autor</a></li>
+								<li><a class="dropdown-item" href="/autor/list">Lista Autores</a></li>
+							</ul>
+						</li>
 
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false">
-							Libros
-						</a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li><a class="dropdown-item" href="/libro">Formulario Libro</a></li>
-							<li><a class="dropdown-item" href="/libro/list">Lista Libros</a></li>
-						</ul>
-					</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								Libros
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/libro">Formulario Libro</a></li>
+								<li><a class="dropdown-item" href="/libro/list">Lista Libros</a></li>
+							</ul>
+						</li>
 
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false">
-							Editoriales
-						</a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li><a class="dropdown-item" href="/editorial">Formulario Editorial</a></li>
-							<li><a class="dropdown-item" href="/editorial/list">Lista Editoriales</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-		</div>
-		<div>
-			<div class="btn-logout">
-				<form th:action="@{/logout}" method="POST">
-					<button type="submit" class="btn btn-secondary">LogOut</button>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								Editoriales
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/editorial">Formulario Editorial</a></li>
+								<li><a class="dropdown-item" href="/editorial/list">Lista Editoriales</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<a href="/inicio"><button type="submit" class="btn btn-secondary btn-sm">Ir al inicio</button></a>
+				</div>
+				<form th:action="@{/logout}" method="POST" class="p-1">
+					<button type="submit" class="btn btn-danger btn-sm">Cerrar Sesión</button>
 				</form>
-			</div>
-	</nav>
+		</nav>
+	</header>
+
 	<table class="table caption-top">
 		<thead>
 			<tr>
@@ -99,10 +101,10 @@ and open the template in the editor.
 					<a th:href="@{/editorial/eliminar(id = ${edit.id})}">
 						<button type="button" class="btn btn-danger">Eliminar</button>
 					</a>
-					
+
 					<!-- Modal -->
 					<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-						tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+						tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content bg-secondary">
 								<div class="modal-header bg-light">
